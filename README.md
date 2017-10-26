@@ -1,9 +1,7 @@
 # flask_todo
 Rest APIs for Todo app
 
-* Once you run the application *
-
-Try to access the URLs by going to the following 
+* Once you run the application then you can access the app http://localhost:5000/
 
 Apis are created with the opensource library flask-restplus
 
