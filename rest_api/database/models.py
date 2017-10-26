@@ -9,15 +9,12 @@ class TodoList(db.Model):
     description = db.Column(db.Text)
     published_date = db.Column(db.DateTime)
     modified_date = db.Column(db.DateTime)
-    action_date = db.Column(db.DateTime)    
-    
 
-    def __init__(self, title, description, action_date):
+    def __init__(self, title, description):
         self.title = title
         self.description = description
         self.published_date = datetime.utcnow()
         self.modified_date = datetime.utcnow()
-        self.action_date = action_date
 
     def __repr__(self):
         return '<TodoList %r>' % self.title

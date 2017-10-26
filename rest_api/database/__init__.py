@@ -4,6 +4,6 @@ db = SQLAlchemy()
 
 
 def reset_database():
-    from rest_api.database.models import TodoList
+    from .models import TodoList
     db.drop_all()
     db.create_all()

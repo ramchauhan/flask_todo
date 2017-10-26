@@ -5,7 +5,6 @@ todo_list = api.model('Todo List post', {
     'id': fields.Integer(readOnly=True, description='The unique identifier of Todo List'),
     'title': fields.String(required=True, description='Todo List Title'),
     'description': fields.String(required=True, description='Todo List description'),
-    'action_date': fields.DateTime(required=True, description='Todo List action date'),
 })
 
 item_of_todo_list = api.inherit('Item of Todo List', todo_list)

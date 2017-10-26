@@ -8,8 +8,7 @@ from database.models import TodoList
 def create_todo_list(data):
     title = data.get('title')
     description = data.get('description')
-    action_date = dateutil.parser.parse(data.get('action_date'))
-    todo_list = TodoList(title, description, action_date)
+    todo_list = TodoList(title, description)
     db_engine = db.engine
     # check if table not exists then create the table otherwise add the data in the table
     if not db_engine.dialect.has_table(db_engine, 'todo_list'):
@@ -34,3 +33,10 @@ def delete_todo_list(todo_list_id):
     todo_list = TodoList.query.filter(TodoList.id == todo_list_id).one()
     db.session.delete(todo_list)
     db.session.commit()
+
+
+def get_all_records():
+    db_engine = db.engine
+    if not db_engine.dialect.has_table(db_engine, 'todo_list'):
+        reset_database()
+    return TodoList.query.all()
